@@ -35,7 +35,7 @@ const Header = () => {
       className={`${styles.header} ${isFixed ? styles.fixed : ""}`}
     >
       <div className={styles.left}>
-        <NavLink to="/home">
+        <NavLink to="/">
           <img
             className={styles.logo}
             alt="logo"
