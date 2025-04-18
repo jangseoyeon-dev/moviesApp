@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./Header.module.css";
 import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Header.module.css"; // 상대 경로 OK?
 
 const navData = [
   { id: 0, title: "TV", value: "tv" },
