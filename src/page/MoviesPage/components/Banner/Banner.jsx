@@ -6,7 +6,7 @@ import sytles from "./Banner.module.css";
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
 
-  isLoading && <div>Loading...</div>;
+  isLoading && <div sytles={{ color: "red" }}>Loading...</div>;
   isError && <Alert variant="danger">{error.message}</Alert>;
 
   return (
