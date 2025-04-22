@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SearchPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 
 const SearchPage = () => {
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  const navigate = useNavigate();
+  const searchByKeyword = () => {
+    navigate(`/movies?q=${searchKeyword}`);
+    setSearchKeyword("");
+  };
+
   return (
     <div>
       <div className={styles.container}>
@@ -12,8 +21,15 @@ const SearchPage = () => {
             className={styles.input}
             type="text"
             placeholder="제목, 장르, 배우로 검색해보세요."
+            value={searchKeyword}
+            onChange={(e) => setSearchKeyword(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                searchByKeyword();
+              }
+            }}
           />
-          <FontAwesomeIcon icon={faSearch} />
+          <FontAwesomeIcon icon={faSearch} onClick={searchByKeyword} />
         </div>
       </div>
     </div>

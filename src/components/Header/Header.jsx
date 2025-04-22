@@ -2,16 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import styles from "./Header.module.css"; // 상대 경로 OK?
-
-const navData = [
-  { id: 0, title: "TV", value: "tv" },
-  { id: 1, title: "영화", value: "movie" },
-  { id: 2, title: "스포츠", value: "sports" },
-  { id: 3, title: "스토어", value: "store" },
-  { id: 4, title: "키즈", value: "kids" },
-  { id: 5, title: "라이브", value: "live" },
-];
+import styles from "./Header.module.css";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -35,19 +26,14 @@ const Header = () => {
       className={`${styles.header} ${isFixed ? styles.fixed : ""}`}
     >
       <div className={styles.left}>
-        <NavLink to="/">
-          <img
-            className={styles.logo}
-            alt="logo"
-            src="https://assets.coupangplay.com/images/svg/web_gnb_logo_new.svg"
-          />
-        </NavLink>
+        <img
+          className={styles.logo}
+          alt="logo"
+          src="https://assets.coupangplay.com/images/svg/web_gnb_logo_new.svg"
+        />
         <ul className={styles.menu}>
-          {navData.map((item) => (
-            <NavLink key={item.id} to={item.value}>
-              {item.title}
-            </NavLink>
-          ))}
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="movies">Movies</NavLink>
         </ul>
       </div>
       <div>

@@ -1,17 +1,64 @@
-import React from "react";
-import Banner from "./components/Banner/Banner";
-import PopularMovieSlice from "./components/PopularMovieSlice/PopularMovieSlice";
-import UpComingMovieSlice from "./components/UpComingMovieSlice/UpComingMovieSlice";
+import React, { useState } from "react";
+import { useSarchMoviesQuery } from "../../hooks/useSearchMovies";
+import { useSearchParams } from "react-router";
+import { Alert } from "react-bootstrap";
+import styles from "./MoviesPage.module.css";
+import MovieCard from "../../common/MovieCard/MovieCard";
+import Pagenation from "../../common/PageNation/PageNation";
+import Loding from "../../common/Loding";
 
 const MoviesPage = () => {
+  const [searchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
+  const keyWord = searchParams.get("q");
+  const { data, isLoading, isError, error } = useSarchMoviesQuery({
+    keyWord,
+    page,
+  });
+  if (isLoading) {
+    return <Loding />;
+  }
+  if (isError) {
+    return <Alert variant="danger">{error.message}</Alert>;
+  }
+  const handlePageClick = ({ selected }) => {
+    setPage(selected + 1);
+  };
+
   return (
-    <div>
-      <Banner />
-      <div className="p-10">
-        <PopularMovieSlice />
-        <UpComingMovieSlice />
-      </div>
-    </div>
+    <>
+      {data.results.length > 0 ? (
+        <>
+          <div className={styles.container}>
+            <div className={styles.box}>
+              <button className={styles.btn}>Sort</button>
+              <button className={styles.btn}>Filter</button>
+            </div>
+            <div>
+              <div className={styles.cardBox}>
+                {data?.results.map((item) => (
+                  <MovieCard key={item.id} movie={item} />
+                ))}
+              </div>
+            </div>
+          </div>
+          <div
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <Pagenation
+              pageCount={data?.total_pages}
+              page={page}
+              onPageChange={handlePageClick}
+            />
+          </div>
+        </>
+      ) : (
+        <div className={styles.emptyBox}>
+          <p className={styles.empty}>"{keyWord}"검색 결과</p>
+          <p className={styles.empty}>데이터가 존재하지 않습니다.</p>
+        </div>
+      )}
+    </>
   );
 };
 
