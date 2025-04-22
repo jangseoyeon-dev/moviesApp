@@ -6,7 +6,7 @@ const MovieCard = ({ movie }) => {
   const { data: generData } = useMovieGenreQuery();
   console.log("generData", generData);
   const showGenres = (generIdList) => {
-    if (!generData) return [];
+    if (!generData || !generIdList) return [];
 
     const generDataName = generIdList.map((id) => {
       const generObj = generData.find((gener) => gener.id === id);
@@ -25,15 +25,15 @@ const MovieCard = ({ movie }) => {
       <div className={styles.overlay}>
         <h3 className={styles.title}>{movie.title}</h3>
         <div>
-          {showGenres(movie.genre_ids).map((id) => (
-            <span key={id} className={styles.badge}>
+          {showGenres(movie.genre_ids)?.map((id, index) => (
+            <span key={index} className={styles.badge}>
               {id}
             </span>
           ))}
         </div>
         <div>
           <div>평점: {Math.ceil(movie.vote_average * 10) / 10}</div>
-          <div>{movie.adult ? "청소년 관람불가" : "전체 이용가"}</div>
+          <div>{movie.adult ? "전체 관람가" : "성인"}</div>
         </div>
       </div>
     </div>
