@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+import { useNavigate } from "react-router";
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
   const { data: generData } = useMovieGenreQuery();
-  console.log("generData", generData);
   const showGenres = (generIdList) => {
     if (!generData || !generIdList) return [];
 
@@ -15,12 +16,18 @@ const MovieCard = ({ movie }) => {
 
     return generDataName;
   };
+
+  // 영화 카드를 누르면 카드 아이디별 페이지로 이동
+  const handleClick = () => {
+    navigate(`/movies/${movie.id}`);
+  };
   return (
     <div
       className={styles.movieCard}
       style={{
         backgroundImage: `url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}")`,
       }}
+      onClick={handleClick}
     >
       <div className={styles.overlay}>
         <h3 className={styles.title}>{movie.title}</h3>

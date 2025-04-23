@@ -46,7 +46,7 @@ const MoviesPage = () => {
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <Pagenation
-              pageCount={data?.total_pages}
+              pageCount={data.total_pages ? Math.min(data.total_pages, 500) : 1}
               page={page}
               onPageChange={handlePageClick}
             />
