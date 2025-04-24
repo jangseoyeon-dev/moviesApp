@@ -1,30 +1,19 @@
 import React from "react";
 import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 import Alert from "react-bootstrap/Alert";
-import sytles from "./Banner.module.css";
 
-// 현재 배너는 한 이미지만 보임
-// 변경사항 : 배너 슬라이드 도입!!
+// Embla Carousel 라이브러리 사용
+import EmblaCarousel from "./EmblaCarousel";
+const OPTIONS = { dragFree: true, loop: true };
+
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
-
   isLoading && <div sytles={{ color: "red" }}>Loading...</div>;
   isError && <Alert variant="danger">{error.message}</Alert>;
 
   return (
-    <div
-      className={sytles.banner}
-      style={{
-        backgroundImage:
-          "url(" +
-          `https://media.themoviedb.org/t/p/w1066_and_h600_bestv2/${data?.results[0].poster_path}` +
-          ")",
-      }}
-    >
-      <div className={sytles["banner-text-area"]}>
-        <h1 className={sytles.title}>{data?.results?.[0]?.title}</h1>
-        <p>{data?.results?.[0]?.overview}</p>
-      </div>
+    <div style={{ marginTop: "100px", overflow: "hidden", height: "40%" }}>
+      <EmblaCarousel slides={data?.results} options={OPTIONS} />
     </div>
   );
 };
