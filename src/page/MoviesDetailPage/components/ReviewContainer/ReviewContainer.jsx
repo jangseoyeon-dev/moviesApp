@@ -4,7 +4,7 @@ import style from "./ReviewConatiner.module.css";
 
 const ReviewContainer = ({ movieId }) => {
   const { data, isLoading, isError, error } = useReviewMovieQuery(movieId);
-
+  console.log(data);
   if (isLoading) {
     return <div className={style.message}>Loading...</div>;
   }
@@ -20,7 +20,7 @@ const ReviewContainer = ({ movieId }) => {
           <div className={style.header}>
             <span className={style.author}>{item.author}</span>
             <span className={style.rating}>
-              {item.author_details.rating ?? "?"} / 10
+              {item.author_details.rating} / 10
             </span>
           </div>
           <p className={style.content}>{item.content}</p>

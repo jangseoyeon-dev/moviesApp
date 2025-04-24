@@ -21,8 +21,6 @@ const MoviesDetailPage = () => {
     return <Alert variant="danger">{error.message}</Alert>;
   }
 
-  console.log(tabIndex == 0 ? `${styles.tabs} ${styles.active}` : styles.tabs);
-
   return (
     <div className={styles.container}>
       {/* 이미지와 정보 */}

@@ -3,6 +3,8 @@ import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 import Alert from "react-bootstrap/Alert";
 import sytles from "./Banner.module.css";
 
+// 현재 배너는 한 이미지만 보임
+// 변경사항 : 배너 슬라이드 도입!!
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
 
