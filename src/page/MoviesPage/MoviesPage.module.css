@@ -1,39 +1,58 @@
+/* 메인 컨테이너 */
 .container {
-  display: grid;
-  margin-top: 5%;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column; /* 세로로 쌓이도록 */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px; /* 카테고리와 카드박스 사이 간격 */
+  padding: 80px 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto; /* 가운데 정렬 */
 }
 
+/* 카드 박스는 카드에 맞게 중앙 정렬 */
 .cardBox {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  width: 100%; /* 100% 너비로 설정하여, 공간을 꽉 채우게 */
+  padding: 20px 0;
 }
 
+/* 카테고리 박스 */
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 5%;
-  gap: 2%;
+  gap: 10px;
+  width: 100%;
 }
 
 .btn {
-  border: 1px solid white;
-  border-radius: 10px;
-  width: 60%;
-  padding: 20px;
-  text-align: left;
-  font-size: 30px;
+  border: 2px solid #0074e4; /* 버튼 테두리를 파란색으로 */
+  background-color: transparent;
+  border-radius: 30px; /* 둥근 테두리 */
+  width: 80%;
+  padding: 16px;
+  font-size: 18px;
+  color: #0074e4;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .btn:hover {
-  background-color: white;
-  color: black;
+  background-color: #0074e4;
+  color: white;
+  transform: scale(1.05); /* hover시 버튼 크기 커짐 */
 }
 
+/* 빈 상태 메시지 */
 .emptyBox {
   display: flex;
   flex-direction: column;
@@ -41,42 +60,61 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  background-color: #f7f7f7; /* 부드러운 회색 배경 */
+  padding: 20px;
+  box-sizing: border-box;
 }
+
 .empty {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   text-align: center;
+  color: #555;
+  margin-bottom: 10px;
 }
 
+.empty span {
+  font-size: 24px;
+  color: #999;
+}
+
+/* 반응형 디자인 */
+
+/* 768px 이하에서는 1열로 변환 */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr;
+    padding: 40px 10px; /* 여백 감소 */
   }
-  .box {
-    flex-direction: row;
-    gap: 10px;
+
+  .cardBox {
+    gap: 20px;
   }
+
   .btn {
-    width: 100px;
-    padding: 10px;
-    font-size: 15px;
+    width: 90%;
+    font-size: 16px;
+    padding: 12px;
   }
 }
 
+/* 480px 이하에서는 버튼 크기와 카드 박스 스타일 수정 */
 @media (max-width: 480px) {
   .container {
-    grid-template-columns: 1fr;
+    gap: 30px; /* 간격 조정 */
   }
-  .cardBox {
-    grid-template-columns: 1fr 1fr;
-  }
-  .box {
-    flex-direction: row;
-    gap: 10px;
-  }
+
   .btn {
-    width: 100px;
-    padding: 10px;
-    font-size: 15px;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .cardBox {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .empty {
+    font-size: 28px;
   }
 }

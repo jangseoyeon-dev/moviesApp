@@ -6,6 +6,7 @@ import styles from "./MoviesPage.module.css";
 import MovieCard from "../../common/MovieCard/MovieCard";
 import Pagenation from "../../common/PageNation/PageNation";
 import Loding from "../../common/Loding";
+import Category from "./components/Category/Category";
 
 const MoviesPage = () => {
   const [searchParams] = useSearchParams();
@@ -30,16 +31,11 @@ const MoviesPage = () => {
       {data.results.length > 0 ? (
         <>
           <div className={styles.container}>
-            <div className={styles.box}>
-              <button className={styles.btn}>Sort</button>
-              <button className={styles.btn}>Filter</button>
-            </div>
-            <div>
-              <div className={styles.cardBox}>
-                {data?.results.map((item) => (
-                  <MovieCard key={item.id} movie={item} />
-                ))}
-              </div>
+            <Category />
+            <div className={styles.cardBox}>
+              {data?.results.map((item) => (
+                <MovieCard key={item.id} movie={item} />
+              ))}
             </div>
           </div>
           <div

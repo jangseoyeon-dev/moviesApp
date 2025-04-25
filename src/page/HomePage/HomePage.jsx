@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import Banner from "./components/Banner/Banner";
 import PopularMovieSlice from "./components/PopularMovieSlice/PopularMovieSlice";
 import UpComingMovieSlice from "./components/UpComingMovieSlice/UpComingMovieSlice";
-import Category from "./components/Category/Category";
 import Loding from "../../common/Loding";
 
 // 홈페이지에는 배너, 인기슬라이드, 최근슬라이드가 존재한다.
@@ -13,7 +12,6 @@ const HomePage = () => {
     <Suspense fallback={<Loding />}>
       <Banner />
       <div className="p-10">
-        <Category />
         <PopularMovieSlice />
         <UpComingMovieSlice />
       </div>

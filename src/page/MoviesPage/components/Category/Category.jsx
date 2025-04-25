@@ -2,6 +2,7 @@ import React from "react";
 import { useMovieGenreQuery } from "../../../../hooks/useMovieGenre";
 
 import styles from "./Category.module.css";
+import Select from "../../../../common/Select/Select";
 
 const Category = () => {
   const { data } = useMovieGenreQuery();
@@ -16,6 +17,9 @@ const Category = () => {
           </li>
         ))}
       </ul>
+      <div className={styles.select}>
+        <Select className={styles.select} data={data} />
+      </div>
     </div>
   );
 };
