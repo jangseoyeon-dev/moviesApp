@@ -8,12 +8,23 @@ const PageNation = ({ pageCount, page, onPageChange }) => {
     <ReactPaginate
       previousLabel={<FiChevronLeft />}
       nextLabel={<FiChevronRight />}
+      pageRangeDisplayed={5}
+      marginPagesDisplayed={0}
       pageCount={pageCount}
       onPageChange={onPageChange}
-      containerClassName={"pagination"}
-      pageLinkClassName={"pagination__link"}
-      activeLinkClassName={"pagination__link__active"}
       forcePage={page - 1}
+      pageClassName="page-item"
+      pageLinkClassName="page-link"
+      previousClassName="page-item"
+      previousLinkClassName="page-link"
+      nextClassName="page-item"
+      nextLinkClassName="page-link"
+      // breakLabel="..."
+      // breakClassName="page-item"
+      // breakLinkClassName="page-link"
+      containerClassName="pagination"
+      // activeClassName="active"
+      // renderOnZeroPageCount={null}
     />
   );
 };

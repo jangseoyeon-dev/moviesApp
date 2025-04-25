@@ -25,7 +25,11 @@ const MovieCard = ({ movie }) => {
     <div
       className={styles.movieCard}
       style={{
-        backgroundImage: `url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}")`,
+        backgroundImage: `url("${
+          movie.poster_path
+            ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`
+            : "https://previews.123rf.com/images/pavelstasevich/pavelstasevich1811/pavelstasevich181101027/112815900-no-image-available-icon-flat-vector.jpg"
+        }")`,
       }}
       onClick={handleClick}
     >

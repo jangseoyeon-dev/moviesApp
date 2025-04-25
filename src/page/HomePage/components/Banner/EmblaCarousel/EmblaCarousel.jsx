@@ -13,7 +13,6 @@ const TWEEN_FACTOR_BASE = 0.2;
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
-  console.log(slides);
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const tweenFactor = useRef(0);
   const tweenNodes = useRef([]);

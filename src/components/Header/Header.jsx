@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -38,10 +38,8 @@ const Header = () => {
       </div>
       <div>
         <NavLink to="/search">
-          <FontAwesomeIcon
-            icon={faSearch}
-            style={{ color: "white", fontSize: "20px" }}
-          />
+          <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+          <FontAwesomeIcon icon={faBars} className={styles.menuBar} />
         </NavLink>
       </div>
     </div>

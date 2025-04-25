@@ -11,6 +11,10 @@
   z-index: 1000;
 }
 
+.icon {
+  font-size: 20px;
+}
+
 .fixed {
   position: fixed;
   background-color: black;
@@ -28,7 +32,9 @@
   height: 50px;
   margin-right: 40px;
 }
-
+.menuBar {
+  display: none;
+}
 .menu {
   display: flex;
   align-items: center;
@@ -38,9 +44,12 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 20px 5px;
+    padding: 20px;
   }
-  .menu {
+  .menuBar {
+    display: block;
+  }
+  .icon {
     display: none;
   }
   .logo {
@@ -48,8 +57,9 @@
     height: 25px;
   }
 }
-@media (max-width: 480px) {
-  .header {
-    padding: 20px 5px;
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
   }
 }

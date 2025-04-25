@@ -1,21 +1,12 @@
 import React from "react";
 import { ClipLoader } from "react-spinners";
+import style from "./Loding.module.css";
 
 const Loding = () => {
   return (
-    <div
-      style={{
-        marginTop: "100px",
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className={style.container}>
       <ClipLoader
         color="white"
-        size={150}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

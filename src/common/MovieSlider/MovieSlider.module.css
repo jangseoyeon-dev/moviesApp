@@ -21,10 +21,6 @@
   gap: 1rem;
 }
 
-/* --------------------------- */
-/*        Responsive CSS       */
-/* --------------------------- */
-
 @media (max-width: 768px) {
   .title {
     font-size: 1.3rem;
@@ -45,7 +41,6 @@
   .title {
     font-size: 1.1rem;
     margin: 0 0 16px 0;
-    text-align: center;
   }
 
   .carousel-container {

@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #1c2024;
@@ -8,6 +9,10 @@
   padding: 128px 0 54px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.menuBox {
+  display: none;
 }
 
 .inputbox {
@@ -26,4 +31,38 @@
   background: transparent;
   color: white;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .inputbox {
+    width: 400px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuBox {
+    display: block;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.2rem;
+    color: white;
+
+    span {
+      font-size: 25px;
+      color: rgb(151, 149, 149);
+    }
+  }
+  .inputbox {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
 }

@@ -9,6 +9,7 @@ export const useReviewMovieQuery = (movieId) => {
   return useQuery({
     queryKey: ["movie-review", movieId],
     queryFn: () => fetchReviewMovie(movieId),
+    suspense: true,
     select: (data) => data.data,
   });
 };

@@ -16,5 +16,6 @@ export const useDetailMovieQuery = (movieId) => {
   return useQuery({
     queryKey: ["movie-detail", movieId],
     queryFn: () => fetchMovieDetailAndVideo(movieId),
+    suspense: true,
   });
 };

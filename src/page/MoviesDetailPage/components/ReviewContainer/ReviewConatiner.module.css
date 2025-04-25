@@ -25,7 +25,7 @@
 
 .author {
   font-weight: 600;
-  color: #333;
+  color: rgb(161, 150, 150);
 }
 
 .rating {
@@ -37,9 +37,18 @@
 }
 
 .content {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.expanded {
+  height: auto;
+}
+
+.moreText {
+  color: #c1c1c1;
 }
 
 .message {

@@ -8,7 +8,7 @@ import MoviesDetailPage from "../page/MoviesDetailPage/MoviesDetailPage";
 import NotFoundPage from "../page/NotFoundPage/NotFoundPage";
 import ProtectedRoute from "./ProtectedRoute";
 
-// ProtectedRoute 컴포넌트로 로그인 여부를 따
+// ProtectedRoute 컴포넌트로 로그인 여부를 판단하여 페이지 노출
 
 const router = createBrowserRouter([
   { path: "*", Component: NotFoundPage },
