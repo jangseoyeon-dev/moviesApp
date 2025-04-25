@@ -3,10 +3,7 @@ import { useUpComintMoviesQuery } from "../../../../hooks/useUpComintMovies";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 
 const UpComingMovieSlice = () => {
-  const { data, isLoading, isError, error } = useUpComintMoviesQuery();
-  if (isLoading) {
-    return <div style={{ color: "red" }}>Loading...</div>;
-  }
+  const { data, isError, error } = useUpComintMoviesQuery();
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
   }

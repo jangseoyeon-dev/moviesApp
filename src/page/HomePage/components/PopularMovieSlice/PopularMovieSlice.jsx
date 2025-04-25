@@ -5,11 +5,8 @@ import Alert from "react-bootstrap/Alert";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 
 const PopularMovieSlice = () => {
-  const { data, isLoading, isError, error } = usePopularMoviesQuery();
+  const { data, isError, error } = usePopularMoviesQuery();
 
-  if (isLoading) {
-    return <div style={{ color: "red" }}>Loading...</div>;
-  }
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
   }

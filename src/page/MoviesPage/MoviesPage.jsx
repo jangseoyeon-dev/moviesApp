@@ -29,25 +29,21 @@ const MoviesPage = () => {
   return (
     <>
       {data.results.length > 0 ? (
-        <>
-          <div className={styles.container}>
-            <Category />
-            <div className={styles.cardBox}>
-              {data?.results.map((item) => (
-                <MovieCard key={item.id} movie={item} />
-              ))}
-            </div>
+        <div className={styles.container}>
+          <Category />
+          <div className={styles.cardBox}>
+            {data?.results.map((item) => (
+              <MovieCard key={item.id} movie={item} />
+            ))}
           </div>
-          <div
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
-          >
+          <div className={styles.pagenationBox}>
             <Pagenation
               pageCount={data.total_pages ? Math.min(data.total_pages, 500) : 1}
               page={page}
               onPageChange={handlePageClick}
             />
           </div>
-        </>
+        </div>
       ) : (
         <div className={styles.emptyBox}>
           <p className={styles.empty}>"{keyWord}"검색 결과</p>

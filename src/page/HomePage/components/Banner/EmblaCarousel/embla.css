@@ -3,20 +3,24 @@
   --slide-spacing: 1rem;
   --slide-size: 80%;
 }
+
 .embla__viewport {
   overflow: hidden;
 }
+
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
 }
+
 .embla__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
+
 .embla__slide__img {
   border-radius: 1.8rem;
   display: block;
@@ -24,19 +28,22 @@
   width: 100%;
   object-fit: cover;
 }
+
 .embla__controls {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 버튼 가운데 정렬 */
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
+
 .embla__buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 0.6rem;
+  justify-content: center; /* 버튼 가운데 정렬 */
   align-items: center;
 }
+
 .embla__button {
   -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
   -webkit-appearance: none;
@@ -60,9 +67,11 @@
   justify-content: center;
   border: 1px solid rgb(91, 89, 89);
 }
+
 .embla__button:disabled {
   color: var(--detail-high-contrast);
 }
+
 .embla__button__svg {
   width: 35%;
   height: 35%;
@@ -73,6 +82,7 @@
   height: 100%;
   overflow: hidden;
 }
+
 .embla__parallax__layer {
   position: relative;
   height: 100%;
@@ -80,6 +90,7 @@
   display: flex;
   justify-content: center;
 }
+
 .embla__parallax__img {
   max-width: none;
   flex: 0 0 calc(115% + (var(--slide-spacing) * 2));
@@ -107,4 +118,72 @@
 
 .embla__parallax__btn:hover {
   background-color: rgb(75, 111, 239);
+}
+
+/* --------------------------- */
+/*        Responsive CSS       */
+/* --------------------------- */
+
+@media (max-width: 1024px) {
+  .embla {
+    --slide-height: 28rem;
+    --slide-size: 85%;
+  }
+
+  .embla__parallax__infoBox {
+    font-size: 1.6rem;
+    left: 20%;
+  }
+
+  .embla__parallax__btn {
+    font-size: 1.3rem;
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .embla {
+    --slide-height: 22rem;
+    --slide-size: 90%;
+  }
+
+  .embla__parallax__infoBox {
+    font-size: 1.4rem;
+    left: 25%;
+  }
+
+  .embla__button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .embla__parallax__btn {
+    font-size: 1.2rem;
+    width: 160px;
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .embla {
+    --slide-height: 18rem;
+    --slide-size: 95%;
+    align-items: center;
+  }
+
+  .embla__parallax__infoBox {
+    font-size: 1.2rem;
+    left: 30%;
+  }
+
+  .embla__button {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .embla__parallax__btn {
+    font-size: 1rem;
+    width: 140px;
+    padding: 0.6rem 1.2rem;
+  }
 }

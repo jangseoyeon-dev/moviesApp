@@ -1,9 +1,18 @@
 import React from "react";
 import styles from "./LoginPage.module.css";
 import { useNavigate } from "react-router";
+import useAuthStore from "../../store/useAuthStore";
 
 const LoginPage = () => {
+  const { login } = useAuthStore();
   const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login();
+    navigate("/home");
+  };
+
   return (
     <div>
       <div className={styles.container}>
@@ -26,13 +35,7 @@ const LoginPage = () => {
             <span>스포츠 중계를 모두 한 곳에서</span>
           </div>
         </div>
-        <form
-          className={styles.form}
-          onSubmit={(e) => {
-            e.preventDefault();
-            navigate("/home");
-          }}
-        >
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
           <input
             className={styles.input}
             type="email"
