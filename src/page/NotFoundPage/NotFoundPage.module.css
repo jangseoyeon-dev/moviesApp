@@ -1,0 +1,14 @@
+.logo {
+  width: 200px;
+  height: 50px;
+  margin: 60px;
+}
+.infoText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: 400px;
+  margin: auto;
+}
