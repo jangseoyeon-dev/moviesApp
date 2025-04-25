@@ -9,17 +9,22 @@ import MoviesDetailPage from "./page/MoviesDetailPage/MoviesDetailPage";
 import NotFoundPage from "./page/NotFoundPage/NotFoundPage";
 
 const router = createBrowserRouter([
+  { path: "*", Component: NotFoundPage },
   {
     path: "/",
-    Component: HomeLayout,
     children: [
-      { index: true, Component: HomePage },
-      { path: "login", Component: LoginPage },
-      { path: "search", Component: SearchPage },
-      { path: "movies", Component: MoviesPage },
-      { path: "movies/:id", Component: MoviesDetailPage },
+      { index: true, Component: LoginPage },
+      {
+        Component: HomeLayout,
+        children: [
+          { path: "home", Component: HomePage },
+          { path: "login", Component: LoginPage },
+          { path: "search", Component: SearchPage },
+          { path: "movies", Component: MoviesPage },
+          { path: "movies/:id", Component: MoviesDetailPage },
+        ],
+      },
     ],
   },
-  { path: "*", Component: NotFoundPage },
 ]);
 export default router;

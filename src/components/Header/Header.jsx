@@ -32,7 +32,7 @@ const Header = () => {
           src="https://assets.coupangplay.com/images/svg/web_gnb_logo_new.svg"
         />
         <ul className={styles.menu}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="home">Home</NavLink>
           <NavLink to="movies">Movies</NavLink>
         </ul>
       </div>
